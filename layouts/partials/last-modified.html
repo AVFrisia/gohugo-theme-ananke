@@ -1,0 +1,8 @@
+{{ if .Lastmod }}
+    <div class="pa0 f5 i dib sans-serif">
+        {{ i18n "lastModified" }}:
+        <time {{ printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+            {{- .Lastmod | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+        </time>
+    </div>
+{{ end }}
